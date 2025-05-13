@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('document_id');
+            $table->string('type'); // entrée ou sortie
+            $table->timestamp('date_movement');
             $table->timestamps();
         });
     }
