@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('tvs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('produit_id')->constrained('produits');
+            $table->string('barcode');
+            $table->string('serial_number');
             $table->timestamps();
         });
     }
