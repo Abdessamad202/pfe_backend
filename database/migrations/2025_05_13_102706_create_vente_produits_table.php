@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vente_produits', function (Blueprint $table) {
+        Schema::create('vente_produit', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vente_id')->constrained('ventes');
+            $table->foreignId('produit_id')->constrained('produits');
+            $table->integer('quantite');
+            $table->decimal('prix_unitaire', 10, 2);
             $table->timestamps();
         });
     }
