@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->foreignId('type_produit_id')->constrained('type_produits');
+            $table->foreignId('marque_id')->constrained('marques');
+            $table->decimal('prix', 10, 2);
             $table->timestamps();
         });
     }
